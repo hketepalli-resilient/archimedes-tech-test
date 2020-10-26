@@ -142,7 +142,7 @@ The program can accept parameters:
 
 ## Sending the code source
 
-You have one week to build your program, it should not take longer than 2 hours of your time.
+We know that you're busy and we wanted to give you the chance to show us what you can do, so we designed this task to take no longer than 2 hours of your time
 
 Please feel free to reach us out if you have any questions/doubts.
 
