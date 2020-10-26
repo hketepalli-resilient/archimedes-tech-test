@@ -6,7 +6,7 @@
       "attributes": {
         "date": "2020-10-12T07:20:50.52Z",
         "riskScore": 0.431513435443,
-        "cli": "+44123456789",
+        "number": "+44123456789",
         "greenList": true,
         "redList": false
       }
@@ -17,18 +17,7 @@
       "attributes": {
         "date": "2019-10-12T07:20:50.52Z",
         "riskScore": 0.123444,
-        "cli": "+44123456789",
-        "greenList": false,
-        "redList": true
-      }
-    },
-    {
-      "type": "call",
-      "id": "db48da6c-6cb8-43d5-9637-5906b295fd20",
-      "attributes": {
-        "date": "2019-11-12T07:20:50.52Z",
-        "riskScore": 0.1651346,
-        "cli": "+44123456789",
+        "number": "+44123456789",
         "greenList": false,
         "redList": true
       }

@@ -2,11 +2,20 @@
 
 ## Context
 
-TODO: explain why it's close to our day-to-day job
+In Archimedes, one of our typical activity looks like that:
+- ingest input data
+- enrich with various external/internal information
+- present the transformed data
+
+This tech test is a sample from our real architecture.
 
 ## Task
 
-We are giving you a JSON document, containing calls:
+The task consists in building a program which from two sources of data (calls and operators) generates a CSV report.
+
+### Input: calls
+
+The first source is a JSON document containing phone calls:
 
 ```json
 {
@@ -17,7 +26,7 @@ We are giving you a JSON document, containing calls:
       "attributes": {
         "date": "2020-10-12T07:20:50.52Z",
         "riskScore": 0.431513435443,
-        "cli": "+44123456789",
+        "number": "+44123456789",
         "greenList": true,
         "redList": false
       }
@@ -28,18 +37,7 @@ We are giving you a JSON document, containing calls:
       "attributes": {
         "date": "2019-10-12T07:20:50.52Z",
         "riskScore": 0.123444,
-        "cli": "+44123456789",
-        "greenList": false,
-        "redList": true
-      }
-    },
-    {
-      "type": "call",
-      "id": "db48da6c-6cb8-43d5-9637-5906b295fd20",
-      "attributes": {
-        "date": "2019-11-12T07:20:50.52Z",
-        "riskScore": 0.1651346,
-        "cli": "+44123456789",
+        "number": "+44123456789",
         "greenList": false,
         "redList": true
       }
@@ -48,7 +46,18 @@ We are giving you a JSON document, containing calls:
 }
 ```
 
-TODO: explain the operators table:
+Where:
+| field                | type   | description                                                    | example                                |
+|----------------------|--------|----------------------------------------------------------------|----------------------------------------|
+| type                 | string | always "call"                                                  | calls                                  |
+| id                   | string | UUID                                                           | "8f1b1354-26d2-4e16-9582-9156a0d9a5de" |
+| attributes.date      | string | UTC date in RFC 3339 format                                    | "2019-10-12T07:20:50.52Z"              |
+| attributes.riskScore | float  | number between 0.0 (not risky)  and 1.0 (potential fraud call) | 0.1231351351435                        |
+| attributes.number    | string | phone number in E164 format                                    | +4467464311354153                      |
+| attributes.greenList | bool   | the call is not risky regardless of the risk score             | true                                   |
+| attributes.redList   | bool   | the call is fraud regardless of the risk score                 | false                                  |
+
+### Input: operators
 
 ```json
 {
@@ -73,17 +82,27 @@ TODO: explain the operators table:
 }
 ```
 
-TODO: explain the fields for both sources of data
+Where:
+| field               | type   | description                    | example                                |
+|---------------------|--------|--------------------------------|----------------------------------------|
+| type                | string | always "operator"              | "operator"                             |
+| id                  | string | UUID                           | "8f1b1354-26d2-4e16-9582-9156a0d9a5de" |
+| attributes.prefix   | string | prefix range - see below       | "2000"                                 |
+| attributes.operator | string | the name of the phone operator | "Vodafone"                             |
 
-TODO: remove CLI concept - just write a program
+If the prefix range is "2000", it means that a national number starting with that prefix belongs to that phone operator:
+- `+442143999888`: belongs to the operator, it can be broken down as `+44-2143-999888` and `2143` is in the range 2000-2999
+- `+448423666777`: does not belong to the operator, it can be broken down as `+44-8423-666777` and `8423` is not in the range 2000-2999
 
-We ask you to provide a CLI (command-line interface) to generate the following CSV:
+### Output
+
+The program generates the following CSV from the 2 sources of data:
 ```csv
-id,date,cli,operator,riskScore
+id,date,number,operator,riskScore
 2c4fae60-cf43-4f27-869e-a9ed8b0ca25b,2020-10-12,+44123,Vodafone,0.0
 8f1b1354-26d2-4e16-9582-9156a0d9a5de,2019-10-13,+44654,Unknown,1.0
 db48da6c-6cb8-43d5-9637-5906b295fd20,2019-11-12,+99132,EE,0.3
-911ea345-c58c-4688-bd9a-725263a1540b,2020-11-12,withheld,Unknown,0.9
+911ea345-c58c-4688-bd9a-725263a1540b,2020-11-12,Withheld,Unknown,0.9
 ```
 
 The rules for the risk score calculation are:
@@ -94,37 +113,34 @@ The rules for the risk score calculation are:
 
 The target date format for the CSV is: `YYYY-MM-DD`
 
-The optional parameters for the CLI are:
+If the operator cannot be found, "Unknown" should be displayed as the operator field.
+
+If the number is absent, "Withheld" should be displayed as the number field.
+
+The program can accept parameters:
 - filter by date range, e.g. only generate a CSV for the calls between the `2020-06-30` (inclusive) and `2020-09-15` (inclusive)
 - sorting by date
-
-Optional sortings:
-- sorting by risk score
-- sorting by operator
-
-The names of the CLI and the CLI parameters are free of choice.
-
-## Internal notes
-
-- only few items
-- operator out of range => "Unknown"
-- no cli => rule put "Unknown" as operator and "withheld" as cli
+- [OPTIONAL] sorting by risk score
+- [OPTIONAL] sorting by operator
 
 ## What we expect
 
-TODO
-- clean code
-- test coverage
+- clean code practices
+- relevant usage of software design patterns
+- relevant test coverage
 - simple README to explain how to run your program
 - regular committing to see your thoughts process
 
 ## Input and output samples
 
-TODO - links to JSON and CSV files
+- the calls JSON data file: `data/calls.json`
+- the operators JSON data file: `data/operators.json`
 
 ## Instructions to send the code source
 
 You have one week to build your program, it should not take longer than 2 hours of your time.
+
+Please feel free to reach us out if you have any questions/doubts.
 
 Options at your convenience:
 - send us the link of your git repo
