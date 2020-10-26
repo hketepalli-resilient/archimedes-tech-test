@@ -2,16 +2,16 @@
 
 ## Context
 
-In Archimedes, one of our typical activity looks like that:
+In Archimedes, one of our typical activities looks like that:
 - ingest input data
 - enrich with various external/internal information
 - present the transformed data
 
-This tech test is a sample from our real architecture.
+This tech test is a sample from our real system.
 
 ## Task
 
-The task consists in building a program which from two sources of data (calls and operators) generates a CSV report.
+Build a program which from two sources of data (calls and operators) generates a CSV report.
 
 ### Input: calls
 
@@ -49,7 +49,7 @@ The first source is a JSON document containing phone calls:
 Where:
 | field                | type   | description                                                    | example                                |
 |----------------------|--------|----------------------------------------------------------------|----------------------------------------|
-| type                 | string | always "call"                                                  | calls                                  |
+| type                 | string | always "call"                                                  | "call"                                 |
 | id                   | string | UUID                                                           | "8f1b1354-26d2-4e16-9582-9156a0d9a5de" |
 | attributes.date      | string | UTC date in RFC 3339 format                                    | "2019-10-12T07:20:50.52Z"              |
 | attributes.riskScore | float  | number between 0.0 (not risky)  and 1.0 (potential fraud call) | 0.1231351351435                        |
@@ -58,6 +58,8 @@ Where:
 | attributes.redList   | bool   | the call is fraud regardless of the risk score                 | false                                  |
 
 ### Input: operators
+
+The second source is a JSON document containing phone operators:
 
 ```json
 {
@@ -105,6 +107,8 @@ db48da6c-6cb8-43d5-9637-5906b295fd20,2019-11-12,+99132,EE,0.3
 911ea345-c58c-4688-bd9a-725263a1540b,2020-11-12,Withheld,Unknown,0.9
 ```
 
+The operator field is obtained by a lookup in the operators JSON base on the number phone.
+
 The rules for the risk score calculation are:
 - round up to 1 DP
 - if on the green list, the value is 0.0
@@ -131,18 +135,18 @@ The program can accept parameters:
 - simple README to explain how to run your program
 - regular committing to see your thoughts process
 
-## Input and output samples
+## Input and output data
 
 - the calls JSON data file: `data/calls.json`
 - the operators JSON data file: `data/operators.json`
 
-## Instructions to send the code source
+## Sending the code source
 
 You have one week to build your program, it should not take longer than 2 hours of your time.
 
 Please feel free to reach us out if you have any questions/doubts.
 
 Options at your convenience:
-- send us the link of your git repo
+- send us the link of your git repo (if it's a private repo, please give us access)
 - send us a zip git repo
 - fork this repo as a private fork and give us the access
