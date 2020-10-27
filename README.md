@@ -1,2 +1,2 @@
 # archimedes-tech-test 
-## readme placeholder <your name>
+## readme placeholder (your name)
