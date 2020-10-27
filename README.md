@@ -138,6 +138,8 @@ Misc rules:
 
 We know that you're busy and we wanted to give you the chance to show us what you can do, so we designed this task to take no longer than 2 hours of your time.
 
+You are free to use any language/framework you are comfortable with.
+
 Please feel free to reach us out if you have any questions/doubts.
 
 Options at your convenience:
