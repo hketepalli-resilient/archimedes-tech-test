@@ -2,7 +2,7 @@
 
 ## Context
 
-In Archimedes, one of our typical activities looks like that:
+In the Archimedes team, one of our typical activities looks like that:
 - ingest input data
 - enrich with various external/internal information
 - present the transformed data
@@ -68,7 +68,7 @@ The second source is a JSON document containing phone operators:
       "type": "operator",
       "id": "2c4fae60-cf43-4f27-869e-a9ed8b0ca25b",
       "attributes": {
-        "prefix": "0000",
+        "prefix": "1000",
         "operator": "Vodafone"
       }
     },
@@ -76,7 +76,7 @@ The second source is a JSON document containing phone operators:
       "type": "call",
       "id": "8f1b1354-26d2-4e16-9582-9156a0d9a5de",
       "attributes": {
-        "prefix": "1000",
+        "prefix": "2000",
         "operator": "EE"
       }
     }
@@ -115,17 +115,11 @@ The rules for the risk score calculation are:
 - if on the red list, the value is 1.0
 - being on the green list has precedence on the red list
 
-The target date format for the CSV is: `YYYY-MM-DD`
-
-If the operator cannot be found, "Unknown" should be displayed as the operator field.
-
-If the number is absent, "Withheld" should be displayed as the number field.
-
-The program can accept parameters:
-- filter by date range, e.g. only generate a CSV for the calls between the `2020-06-30` (inclusive) and `2020-09-15` (inclusive)
-- sorting by date
-- [OPTIONAL] sorting by risk score
-- [OPTIONAL] sorting by operator
+Misc rules:
+- the target date format for the CSV is: `YYYY-MM-DD`
+- if the operator cannot be found, "Unknown" should be displayed as the operator field
+- if the number is absent, "Withheld" should be displayed as the number field
+- the calls are ordered by ascending date
 
 ## What we expect
 
@@ -142,7 +136,7 @@ The program can accept parameters:
 
 ## Sending the code source
 
-We know that you're busy and we wanted to give you the chance to show us what you can do, so we designed this task to take no longer than 2 hours of your time
+We know that you're busy and we wanted to give you the chance to show us what you can do, so we designed this task to take no longer than 2 hours of your time.
 
 Please feel free to reach us out if you have any questions/doubts.
 
