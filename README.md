@@ -2,16 +2,16 @@
 
 ## Context
 
-In the Archimedes team, one of our typical activities looks like that:
+In the Archimedes team, one of our typical activities might look like the following:
 - ingest input data
 - enrich with various external/internal information
 - present the transformed data
 
-This tech test is a sample from our real system.
+This tech test is a simplified sample from one of our real systems.
 
 ## Task
 
-Build a program which from two sources of data (calls and operators) generates a CSV report.
+Build a program which from two sources of data (calls and network operators) generates a CSV report.
 
 ### Input: calls
 
@@ -107,7 +107,7 @@ db48da6c-6cb8-43d5-9637-5906b295fd20,2019-11-12,+99132,EE,0.3
 911ea345-c58c-4688-bd9a-725263a1540b,2020-11-12,Withheld,Unknown,0.9
 ```
 
-The operator field is obtained by a lookup in the operators JSON base on the number phone.
+The operator field is obtained by a lookup in the operators JSON based on the number phone.
 
 The rules for the risk score calculation are:
 - round up to 1 DP
