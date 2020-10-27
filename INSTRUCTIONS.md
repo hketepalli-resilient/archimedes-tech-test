@@ -142,7 +142,7 @@ Misc rules:
 - simple README to explain how to run your program
 - regular committing to see your thoughts process
 
-## Input and output data
+## Input data
 
 - the calls JSON data file: `data/calls.json`
 - the operators JSON data file: `data/operators.json`
