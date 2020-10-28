@@ -86,7 +86,7 @@ The second source is a JSON document containing phone operators:
       }
     },
     {
-      "type": "call",
+      "type": "operator",
       "id": "8f1b1354-26d2-4e16-9582-9156a0d9a5de",
       "attributes": {
         "prefix": "2000",
