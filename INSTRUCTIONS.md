@@ -111,13 +111,15 @@ If the prefix range is "2000", it means that a national number starting with tha
 
 ### Output
 
-The program generates the following CSV from the 2 sources of data:
+The program might generate the following CSV from the 2 sources of data (this CSV sample is not linked to the 2 JSON examples from above):
 ```csv
 id,date,number,operator,riskScore
-2c4fae60-cf43-4f27-869e-a9ed8b0ca25b,2020-10-12,+44123,Vodafone,0.0
-8f1b1354-26d2-4e16-9582-9156a0d9a5de,2019-10-13,+44654,Unknown,1.0
-db48da6c-6cb8-43d5-9637-5906b295fd20,2019-11-12,+99132,EE,0.3
-911ea345-c58c-4688-bd9a-725263a1540b,2020-11-12,Withheld,Unknown,0.9
+b9db7910-004a-48a9-9fa3-718662b40bf7,2018-10-12,+44123,Vodafone,0.0
+b9db7910-004a-48a9-9fa3-718662b40bf7,2018-10-13,+44456,Swisstelecom,0.2
+ffde08d9-6999-48ec-a6d9-9cf1dd28089e,2019-10-13,+44654,Unknown,1.0
+db48da6c-6cb8-43d5-9637-5906b295fd20,2020-11-12,+99132,EE,0.3
+911ea345-c58c-4688-bd9a-725263a1540b,2023-11-12,Withheld,Unknown,0.9
+cd62116b-9e31-41fd-a7e5-018d7a7d6533,2023-11-12,Withheld,Unknown,0.5
 ```
 
 The operator field is obtained by a lookup in the operators JSON based on the number phone.
@@ -126,7 +128,7 @@ The rules for the risk score calculation are:
 - round up to 1 DP
 - if on the green list, the value is 0.0
 - if on the red list, the value is 1.0
-- being on the green list has precedence on the red list
+- being on the green list has precedence on the red list (e.g. if a call is on the green list and the red list, the risk score will be 0.0)
 
 Misc rules:
 - the target date format for the CSV is: `YYYY-MM-DD`
