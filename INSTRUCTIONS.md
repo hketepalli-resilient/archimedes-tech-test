@@ -2,7 +2,7 @@
 
 ## Instructions
 
-We know that you're busy and we wanted to give you the chance to show us what you can do, so we designed this task to take no longer than 2 hours of your time.
+We know that you're busy and we wanted to give you the chance to show us what you can do, so we designed this task to take approximately 2 hours to complete.
 
 You are free to use any language/framework you are comfortable with.
 
