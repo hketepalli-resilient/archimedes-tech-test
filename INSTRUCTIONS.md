@@ -111,27 +111,31 @@ If the prefix range is "2000", it means that a national number starting with tha
 
 ### Output
 
-The program might generate the following CSV from the 2 sources of data (this CSV sample is not linked to the 2 JSON examples from above):
+The program might generate the following CSV from the 2 sources of data (this CSV sample is *not* linked to the 2 JSON examples from above):
 ```csv
 id,date,number,operator,riskScore
-b9db7910-004a-48a9-9fa3-718662b40bf7,2018-10-12,+44123,Vodafone,0.0
-b9db7910-004a-48a9-9fa3-718662b40bf7,2018-10-13,+44456,Swisstelecom,0.2
-ffde08d9-6999-48ec-a6d9-9cf1dd28089e,2019-10-13,+44654,Unknown,1.0
-db48da6c-6cb8-43d5-9637-5906b295fd20,2020-11-12,+99132,EE,0.3
+b9db7910-004a-48a9-9fa3-718662b40bf7,2018-10-12,+441234567890,Vodafone,0.0
+84effcca-39aa-424c-961f-34ad09074b42,2018-10-13,+447897949132,Swisstelecom,0.2
+ffde08d9-6999-48ec-a6d9-9cf1dd28089e,2019-10-13,+449876460460,Unknown,1.0
+db48da6c-6cb8-43d5-9637-5906b295fd20,2020-11-12,+449494101010,EE,0.3
 911ea345-c58c-4688-bd9a-725263a1540b,2023-11-12,Withheld,Unknown,0.9
 cd62116b-9e31-41fd-a7e5-018d7a7d6533,2023-11-12,Withheld,Unknown,0.5
 ```
 
-The operator field is obtained by a lookup in the operators JSON based on the number phone.
+Where:
+- `id`: the call id
+- `date`: the date of the call with the `YYYY-MM-DD` format
+- `number`: the call number
+- `operator`: the operator obtained by a lookup in the operators JSON data source based on the number phone
+- `riskScore`: the presented risk score (see the rules below)
 
 The rules for the risk score calculation are:
-- round up to 1 DP
+- rounded up to 1 DP
 - if on the green list, the value is 0.0
 - if on the red list, the value is 1.0
 - being on the green list has precedence on the red list (e.g. if a call is on the green list and the red list, the risk score will be 0.0)
 
 Misc rules:
-- the target date format for the CSV is: `YYYY-MM-DD`
 - if the operator cannot be found, "Unknown" should be displayed as the operator field
 - if the number is absent, "Withheld" should be displayed as the number field
 - the calls are ordered by ascending date
