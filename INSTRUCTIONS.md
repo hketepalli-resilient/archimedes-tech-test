@@ -130,7 +130,8 @@ Where:
 - `riskScore`: the presented risk score (see the rules below)
 
 The rules for the risk score calculation are:
-- rounded up to 1 DP
+- rounded half up to 1 DP (i.e. half way values or above are rounded up, values below half way are rounded down) 
+  - e.g. 0.41 rounds to 0.4, 0.45 rounds to 0.5, 0.48 rounds to 0.5   
 - if on the green list, the value is 0.0
 - if on the red list, the value is 1.0
 - being on the green list has precedence on the red list (e.g. if a call is on the green list and the red list, the risk score will be 0.0)
