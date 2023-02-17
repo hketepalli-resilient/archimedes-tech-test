@@ -14,31 +14,31 @@ class CallBuilder:
         self.green_list = False
         self.red_list = False
 
-    def type(self, call_type: str) -> "CallBuilder":
+    def call_type(self, call_type: str) -> "CallBuilder":
         self.type = call_type
         return self
 
-    def id(self, call_id: str) -> "CallBuilder":
+    def call_id(self, call_id: str) -> "CallBuilder":
         self.id = call_id
         return self
 
-    def datetime(self, call_datetime: datetime) -> "CallBuilder":
+    def call_datetime(self, call_datetime: datetime) -> "CallBuilder":
         self.datetime = call_datetime
         return self
 
-    def risk_score(self, call_risk_score: float) -> "CallBuilder":
+    def call_risk_score(self, call_risk_score: float) -> "CallBuilder":
         self.risk_score = call_risk_score
         return self
 
-    def number(self, phone_number: str) -> "CallBuilder":
+    def phone_number(self, phone_number: str) -> "CallBuilder":
         self.number = phone_number
         return self
 
-    def green_list(self, in_green_list: bool = True) -> "CallBuilder":
+    def in_green_list(self, in_green_list: bool = True) -> "CallBuilder":
         self.green_list = in_green_list
         return self
 
-    def red_list(self, in_red_list: bool = True) -> "CallBuilder":
+    def in_red_list(self, in_red_list: bool = True) -> "CallBuilder":
         self.red_list = in_red_list
         return self
 

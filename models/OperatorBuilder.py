@@ -9,19 +9,19 @@ class OperatorBuilder:
         self.prefix = None
         self.name = ''
 
-    def type(self, operator_type: str) -> "OperatorBuilder":
+    def operator_type(self, operator_type: str) -> "OperatorBuilder":
         self.type = operator_type
         return self
 
-    def id(self, operator_id: str) -> "OperatorBuilder":
+    def operator_id(self, operator_id: str) -> "OperatorBuilder":
         self.id = operator_id
         return self
 
-    def prefix(self, operator_prefix: int) -> "OperatorBuilder":
+    def operator_prefix(self, operator_prefix: int) -> "OperatorBuilder":
         self.prefix = operator_prefix
         return self
 
-    def name(self, operator_name: str) -> "OperatorBuilder":
+    def operator_name(self, operator_name: str) -> "OperatorBuilder":
         self.name = operator_name
         return self
 
