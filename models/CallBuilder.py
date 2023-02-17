@@ -34,11 +34,11 @@ class CallBuilder:
         self.number = phone_number
         return self
 
-    def green_list(self, in_green_list: bool) -> "CallBuilder":
+    def green_list(self, in_green_list: bool = True) -> "CallBuilder":
         self.green_list = in_green_list
         return self
 
-    def red_list(self, in_red_list: bool) -> "CallBuilder":
+    def red_list(self, in_red_list: bool = True) -> "CallBuilder":
         self.red_list = in_red_list
         return self
 
