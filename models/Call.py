@@ -2,6 +2,15 @@ import datetime
 
 
 class Call:
+    def __eq__(self, call: "Call") -> bool:
+        return self.type == call.type and \
+               self.id == call.id and \
+               self.datetime == call.datetime and \
+               self.risk_score == call.risk_score and \
+               self.number == call.number and \
+               self.green_list == call.green_list and \
+               self.red_list == call.red_list
+
     def __init__(self,
                  call_type: str,
                  call_id: str,

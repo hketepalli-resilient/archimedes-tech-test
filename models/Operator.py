@@ -1,5 +1,11 @@
 class Operator:
 
+    def __eq__(self, operator: "Operator") -> bool:
+        return self.type == operator.type and \
+               self.id == operator.id and \
+               self.prefix == operator.prefix and \
+               self.name == operator.name
+
     def __init__(self,
                  operator_type: str,
                  operator_id: str,
