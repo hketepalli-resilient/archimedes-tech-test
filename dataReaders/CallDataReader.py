@@ -1,7 +1,7 @@
 from typing import List
 
-from DataReader import DataReader
 from models.Call import Call
+from .DataReader import DataReader
 
 
 class CallDataReader(DataReader):

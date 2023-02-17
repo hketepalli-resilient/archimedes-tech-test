@@ -1,7 +1,7 @@
 from typing import Dict
 
-from DataReader import DataReader
 from models.Operator import Operator
+from .DataReader import DataReader
 
 
 class OperatorDataReader(DataReader):
