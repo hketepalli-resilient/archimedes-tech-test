@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from Call import Call
+from .Call import Call
 
 
 class CallBuilder:
