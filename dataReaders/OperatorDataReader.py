@@ -4,7 +4,7 @@ from DataReader import DataReader
 from models.Operator import Operator
 
 
-class OperatorCallReader(DataReader):
+class OperatorDataReader(DataReader):
 
     # Returns a dict[operator prefix, operator]
     @staticmethod
