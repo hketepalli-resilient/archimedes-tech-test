@@ -50,7 +50,7 @@ CALL_SUMMARY = [
     .call_id('8f1b1354-26d2-4e16-9582-9156a0d9a5de')
     .datetime(datetime.strptime('2019-10-12T07:20:50.52Z', DATETIME_FORMAT))
     .phone_number('+44123456789')
-    .operator_name('EE')
+    .operator_name('Vodafone')
     .risk_score(1.0)
     .build()
 ]
