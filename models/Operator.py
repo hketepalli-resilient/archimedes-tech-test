@@ -26,7 +26,4 @@ class Operator:
         else:
             raise Exception('Operator prefix is not present')
 
-        if operator_name:
-            self.name = operator_name
-        else:
-            raise Exception('Operator name is not present')
+        self.name = operator_name

@@ -4,13 +4,15 @@ from .Operator import Operator
 class OperatorBuilder:
 
     def __init__(self):
-        self._type = ''
+        self._type = 'operator'
         self._id = ''
         self._prefix = None
-        self._name = ''
+        self._name = 'Unknown'
 
     def type(self, operator_type: str) -> "OperatorBuilder":
-        self._type = operator_type
+        if operator_type is not None:
+            self._type = operator_type
+            
         return self
 
     def operator_id(self, operator_id: str) -> "OperatorBuilder":
@@ -22,7 +24,9 @@ class OperatorBuilder:
         return self
 
     def name(self, name: str) -> "OperatorBuilder":
-        self._name = name
+        if name is not None:
+            self._name = name
+
         return self
 
     def build(self) -> Operator:
