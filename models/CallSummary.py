@@ -25,7 +25,7 @@ class CallSummary:
         self.number = phone_number
         self.operator = operator_name
 
-        if call_risk_score:
+        if call_risk_score is not None:
             self.risk_score = call_risk_score
         else:
             raise Exception('Risk score is not present')
