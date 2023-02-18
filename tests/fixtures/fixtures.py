@@ -38,7 +38,7 @@ OPERATORS = {
     .build()
 }
 
-CALL_SUMMARY = [
+CALLS_SUMMARIES = [
     CallSummaryBuilder()
     .call_id('2c4fae60-cf43-4f27-869e-a9ed8b0ca25b')
     .datetime(datetime.strptime('2020-10-12T07:20:50.52Z', DATETIME_FORMAT))

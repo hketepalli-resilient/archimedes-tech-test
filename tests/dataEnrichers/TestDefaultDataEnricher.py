@@ -1,7 +1,7 @@
 import unittest
 
 from dataEnrichers.DefaultDataEnricher import DefaultDataEnricher
-from tests.fixtures.fixtures import CALLS, OPERATORS, CALL_SUMMARY
+from tests.fixtures.fixtures import CALLS, OPERATORS, CALLS_SUMMARIES
 
 
 class MyTestCase(unittest.TestCase):
@@ -10,7 +10,7 @@ class MyTestCase(unittest.TestCase):
         combined_data = DefaultDataEnricher.combine_data(CALLS, OPERATORS)
 
         self.assertEqual(len(combined_data), 2)
-        self.assertEqual(combined_data, CALL_SUMMARY)
+        self.assertEqual(combined_data, CALLS_SUMMARIES)
 
     def test_get_prefix_range(self):
         phone_number = '+442143999888'
