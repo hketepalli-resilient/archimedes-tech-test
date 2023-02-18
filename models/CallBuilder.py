@@ -6,41 +6,42 @@ from .Call import Call
 class CallBuilder:
 
     def __init__(self):
-        self.type = 'call'
-        self.id = ''
-        self.datetime = datetime.now()
-        self.risk_score = None
-        self.number = 'Withheld'
-        self.green_list = False
-        self.red_list = False
+        self._type = 'call'
+        self._id = ''
+        self._datetime = datetime.now()
+        self._risk_score = None
+        self._number = 'Withheld'
+        self._green_list = False
+        self._red_list = False
 
-    def call_type(self, call_type: str) -> "CallBuilder":
-        self.type = call_type
+    def type(self, type: str) -> "CallBuilder":
+        self._type = type
         return self
 
     def call_id(self, call_id: str) -> "CallBuilder":
-        self.id = call_id
+        self._id = call_id
         return self
 
-    def call_datetime(self, call_datetime: datetime) -> "CallBuilder":
-        self.datetime = call_datetime
+    def datetime(self, call_datetime: datetime) -> "CallBuilder":
+        self._datetime = call_datetime
         return self
 
-    def call_risk_score(self, call_risk_score: float) -> "CallBuilder":
-        self.risk_score = call_risk_score
+    def risk_score(self, risk_score: float) -> "CallBuilder":
+        self._risk_score = risk_score
         return self
 
     def phone_number(self, phone_number: str) -> "CallBuilder":
-        self.number = phone_number
+        self._number = phone_number
         return self
 
     def in_green_list(self, in_green_list: bool = True) -> "CallBuilder":
-        self.green_list = in_green_list
+        self._green_list = in_green_list
         return self
 
     def in_red_list(self, in_red_list: bool = True) -> "CallBuilder":
-        self.red_list = in_red_list
+        self._red_list = in_red_list
         return self
 
     def build(self) -> Call:
-        return Call(self.type, self.id, self.datetime, self.risk_score, self.number, self.green_list, self.red_list)
+        return Call(self._type, self._id, self._datetime, self._risk_score, self._number, self._green_list,
+                    self._red_list)

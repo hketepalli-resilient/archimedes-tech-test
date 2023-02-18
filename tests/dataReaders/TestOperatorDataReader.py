@@ -8,16 +8,16 @@ from models.OperatorBuilder import OperatorBuilder
 
 def get_expected_operators() -> Dict[int, Operator]:
     operator1 = OperatorBuilder() \
-        .operator_name('Vodafone') \
-        .operator_prefix(1000) \
-        .operator_type('operator') \
+        .name('Vodafone') \
+        .prefix(1000) \
+        .type('operator') \
         .operator_id('2c4fae60-cf43-4f27-869e-a9ed8b0ca25b') \
         .build()
 
     operator2 = OperatorBuilder() \
-        .operator_name('EE') \
-        .operator_prefix(2000) \
-        .operator_type('operator') \
+        .name('EE') \
+        .prefix(2000) \
+        .type('operator') \
         .operator_id('8f1b1354-26d2-4e16-9582-9156a0d9a5de') \
         .build()
 

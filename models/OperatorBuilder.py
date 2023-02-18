@@ -4,26 +4,26 @@ from .Operator import Operator
 class OperatorBuilder:
 
     def __init__(self):
-        self.type = ''
-        self.id = ''
-        self.prefix = None
-        self.name = ''
+        self._type = ''
+        self._id = ''
+        self._prefix = None
+        self._name = ''
 
-    def operator_type(self, operator_type: str) -> "OperatorBuilder":
-        self.type = operator_type
+    def type(self, operator_type: str) -> "OperatorBuilder":
+        self._type = operator_type
         return self
 
     def operator_id(self, operator_id: str) -> "OperatorBuilder":
-        self.id = operator_id
+        self._id = operator_id
         return self
 
-    def operator_prefix(self, operator_prefix: int) -> "OperatorBuilder":
-        self.prefix = operator_prefix
+    def prefix(self, prefix: int) -> "OperatorBuilder":
+        self._prefix = prefix
         return self
 
-    def operator_name(self, operator_name: str) -> "OperatorBuilder":
-        self.name = operator_name
+    def name(self, name: str) -> "OperatorBuilder":
+        self._name = name
         return self
 
     def build(self) -> Operator:
-        return Operator(self.type, self.id, self.prefix, self.name)
+        return Operator(self._type, self._id, self._prefix, self._name)
