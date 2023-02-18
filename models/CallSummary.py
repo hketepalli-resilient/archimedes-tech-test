@@ -3,6 +3,13 @@ import datetime
 
 class CallSummary:
 
+    def __eq__(self, call_summary: "CallSummary") -> bool:
+        return self.call_id == call_summary.call_id and \
+               self.number == call_summary.number and \
+               self.operator == call_summary.operator and \
+               self.datetime == call_summary.datetime and \
+               self.risk_score == call_summary.risk_score
+
     def __init__(self,
                  call_id: str,
                  call_datetime: datetime,
