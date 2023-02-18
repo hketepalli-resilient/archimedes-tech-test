@@ -1,12 +1,11 @@
 import json
-from datetime import datetime
 from typing import List
+
+import iso8601
 
 from models.Call import Call
 from models.CallBuilder import CallBuilder
 from .DataReader import DataReader
-
-DATETIME_FORMAT = "%Y-%m-%dT%H:%M:%S.%fZ"
 
 
 class CallDataReader(DataReader):
@@ -19,12 +18,12 @@ class CallDataReader(DataReader):
 
             for call in data['data']:
                 calls.append(CallBuilder().type(call['type'])
-                             .in_red_list(call['attributes']['redList'])
-                             .in_green_list(call['attributes']['greenList']) \
-                             .phone_number(call['attributes']['number']) \
-                             .risk_score(call['attributes']['riskScore']) \
-                             .datetime(datetime.strptime(call['attributes']['date'], DATETIME_FORMAT)) \
-                             .call_id(call['id']) \
+                             .in_red_list(call['attributes'].get('redList'))
+                             .in_green_list(call['attributes'].get('greenList'))
+                             .phone_number(call['attributes'].get('number'))
+                             .risk_score(call['attributes']['riskScore'])
+                             .datetime(iso8601.parse_date(call['attributes']['date']))
+                             .call_id(call['id'])
                              .build())
 
             return calls

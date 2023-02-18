@@ -19,7 +19,7 @@ class OperatorDataReader(DataReader):
                 prefix = int(operator['attributes']['prefix'])
 
                 operators[prefix] = OperatorBuilder() \
-                    .name(operator['attributes']['operator']) \
+                    .name(operator['attributes'].get('operator') if operator['attributes'] else None) \
                     .prefix(prefix) \
                     .type(operator['type']) \
                     .operator_id(operator['id']) \

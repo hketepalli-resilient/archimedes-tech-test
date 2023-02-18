@@ -1,4 +1,4 @@
-from datetime import datetime
+import iso8601
 
 from models.CallBuilder import CallBuilder
 from models.CallSummaryBuilder import CallSummaryBuilder
@@ -11,14 +11,14 @@ CALLS = [
     .in_green_list()
     .phone_number('+44123456789')
     .risk_score(0.431513435443)
-    .datetime(datetime.strptime('2020-10-12T07:20:50.52Z', DATETIME_FORMAT))
+    .datetime(iso8601.parse_date('2020-10-12T07:20:50.52Z'))
     .call_id('2c4fae60-cf43-4f27-869e-a9ed8b0ca25b')
     .build(),
     CallBuilder()
     .in_red_list()
     .phone_number('+44123456789')
     .risk_score(0.123444)
-    .datetime(datetime.strptime('2019-10-12T07:20:50.52Z', DATETIME_FORMAT))
+    .datetime(iso8601.parse_date('2019-10-12T07:20:50.52Z'))
     .call_id('8f1b1354-26d2-4e16-9582-9156a0d9a5de')
     .build()
 ]
@@ -41,14 +41,14 @@ OPERATORS = {
 CALLS_SUMMARIES = [
     CallSummaryBuilder()
     .call_id('2c4fae60-cf43-4f27-869e-a9ed8b0ca25b')
-    .datetime(datetime.strptime('2020-10-12T07:20:50.52Z', DATETIME_FORMAT))
+    .datetime(iso8601.parse_date('2020-10-12T07:20:50.52Z', DATETIME_FORMAT))
     .phone_number('+44123456789')
     .operator_name('Vodafone')
     .risk_score(0.0)
     .build(),
     CallSummaryBuilder()
     .call_id('8f1b1354-26d2-4e16-9582-9156a0d9a5de')
-    .datetime(datetime.strptime('2019-10-12T07:20:50.52Z', DATETIME_FORMAT))
+    .datetime(iso8601.parse_date('2019-10-12T07:20:50.52Z', DATETIME_FORMAT))
     .phone_number('+44123456789')
     .operator_name('Vodafone')
     .risk_score(1.0)
