@@ -18,11 +18,10 @@ class OperatorDataReader(DataReader):
             for operator in data['data']:
                 prefix = int(operator['attributes']['prefix'])
 
-                operators[prefix] = OperatorBuilder() \
-                    .name(operator['attributes'].get('operator') if operator['attributes'] else None) \
-                    .prefix(prefix) \
+                operators[prefix] = OperatorBuilder().prefix(prefix) \
                     .type(operator['type']) \
                     .operator_id(operator['id']) \
+                    .name(operator['attributes']['operator']) \
                     .build()
 
             return operators

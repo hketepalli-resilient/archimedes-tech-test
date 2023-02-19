@@ -7,12 +7,12 @@ class OperatorBuilder:
         self._type = 'operator'
         self._id = ''
         self._prefix = None
-        self._name = 'Unknown'
+        self._name = ''
 
     def type(self, operator_type: str) -> "OperatorBuilder":
         if operator_type is not None:
             self._type = operator_type
-            
+
         return self
 
     def operator_id(self, operator_id: str) -> "OperatorBuilder":
@@ -30,4 +30,13 @@ class OperatorBuilder:
         return self
 
     def build(self) -> Operator:
+        if not self._id:
+            raise Exception('Operator ID is not present')
+
+        if not self._prefix:
+            raise Exception('Operator prefix is not present')
+
+        if not self._name:
+            raise Exception('Operator name is not present')
+
         return Operator(self._type, self._id, self._prefix, self._name)
