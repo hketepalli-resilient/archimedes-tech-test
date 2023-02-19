@@ -20,7 +20,7 @@ class DefaultDataEnricher(DataEnricher):
                 .phone_number(call.number) \
                 .risk_score(DefaultDataEnricher.get_risk_score(call))
 
-            prefix = DefaultDataEnricher.get_prefix_range(call.number) if call.number != "Withheld" else -1
+            prefix = DefaultDataEnricher.get_prefix_range(call.number)
 
             if prefix in operators:
                 call_summary_builder.operator_name(operators[prefix].name)
@@ -31,6 +31,9 @@ class DefaultDataEnricher(DataEnricher):
 
     @staticmethod
     def get_prefix_range(phone_number: str) -> int:
+        if phone_number == "Withheld":
+            return -1
+
         # Assumes the phone numbers are start with +xx
         return int(phone_number[3] + '0' * 3)
 

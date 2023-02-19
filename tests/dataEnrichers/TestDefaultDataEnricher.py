@@ -17,6 +17,10 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(DefaultDataEnricher.get_prefix_range(phone_number), 2000)
 
+        phone_number = 'Withheld'
+
+        self.assertEqual(DefaultDataEnricher.get_prefix_range(phone_number), -1)
+
     def test_get_risk_score(self):
         call = CALLS[0]
 
