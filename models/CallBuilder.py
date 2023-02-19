@@ -15,8 +15,7 @@ class CallBuilder:
         self._red_list = False
 
     def type(self, call_type: str) -> "CallBuilder":
-        if call_type is not None:
-            self._type = call_type
+        self._type = call_type
 
         return self
 
@@ -25,8 +24,7 @@ class CallBuilder:
         return self
 
     def datetime(self, call_datetime: datetime) -> "CallBuilder":
-        if call_datetime is not None:
-            self._datetime = call_datetime
+        self._datetime = call_datetime
 
         return self
 
@@ -35,23 +33,26 @@ class CallBuilder:
         return self
 
     def phone_number(self, phone_number: str) -> "CallBuilder":
-        if phone_number is not None:
-            self._number = phone_number
+        self._number = phone_number
 
         return self
 
     def in_green_list(self, in_green_list: bool = True) -> "CallBuilder":
-        if in_green_list is not None:
-            self._green_list = in_green_list
+        self._green_list = in_green_list
 
         return self
 
     def in_red_list(self, in_red_list: bool = True) -> "CallBuilder":
-        if in_red_list is not None:
-            self._red_list = in_red_list
-            
+        self._red_list = in_red_list
+
         return self
 
     def build(self) -> Call:
+        if not self._id:
+            raise Exception('Call ID is not present')
+
+        if not self._risk_score:
+            raise Exception('Risk sore is not present')
+
         return Call(self._type, self._id, self._datetime, self._risk_score, self._number, self._green_list,
                     self._red_list)

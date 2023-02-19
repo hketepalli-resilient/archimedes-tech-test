@@ -17,13 +17,22 @@ class CallDataReader(DataReader):
             calls = []
 
             for call in data['data']:
-                calls.append(CallBuilder().type(call['type'])
-                             .in_red_list(call['attributes'].get('redList'))
-                             .in_green_list(call['attributes'].get('greenList'))
-                             .phone_number(call['attributes'].get('number'))
-                             .risk_score(call['attributes']['riskScore'])
-                             .datetime(iso8601.parse_date(call['attributes']['date']))
-                             .call_id(call['id'])
-                             .build())
+                call_builder = CallBuilder()
+
+                call_builder.type(call['type']) \
+                    .risk_score(call['attributes']['riskScore']) \
+                    .call_id(call['id']) \
+                    .datetime(iso8601.parse_date(call['attributes']['date']))
+
+                if 'redList' in call['attributes']:
+                    call_builder.in_red_list(call['attributes']['redList'])
+
+                if 'greenList' in call['attributes']:
+                    call_builder.in_green_list(call['attributes']['greenList'])
+
+                if 'number' in call['attributes']:
+                    call_builder.phone_number(call['attributes']['number'])
+
+                calls.append(call_builder.build())
 
             return calls

@@ -20,19 +20,9 @@ class Call:
                  in_green_list: bool,
                  in_red_list: bool):
         self.type = call_type
-
-        if call_id:
-            self.id = call_id
-        else:
-            raise Exception('Call ID is not present')
-
+        self.id = call_id
         self.datetime = call_datetime
-
-        if call_risk_score is not None:
-            self.risk_score = call_risk_score
-        else:
-            raise Exception('Risk sore is not present')
-
+        self.risk_score = call_risk_score
         self.number = phone_number
         self.green_list = in_green_list
         self.red_list = in_red_list
