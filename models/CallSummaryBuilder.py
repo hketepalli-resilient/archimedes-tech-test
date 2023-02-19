@@ -33,4 +33,10 @@ class CallSummaryBuilder:
         return self
 
     def build(self, ) -> CallSummary:
+        if not self._call_id:
+            raise Exception('Call ID is not present')
+
+        if self._risk_score is None:
+            raise Exception('Risk sore is not present')
+
         return CallSummary(self._call_id, self._datetime, self._number, self._operator, self._risk_score)
