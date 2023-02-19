@@ -15,12 +15,12 @@ class CsvDataWriter(DataWriter):
             f.write(HEADER_LINE)
 
             for call_summary in calls_summaries:
-                f.write(CsvDataWriter.get_csv_string(call_summary) + '\n')
+                f.write(CsvDataWriter._get_csv_string(call_summary) + '\n')
 
     @staticmethod
-    def get_csv_string(data: CallSummary):
-        return f"{data.call_id},{CsvDataWriter.get_date(data.datetime)},{data.number},{data.operator},{data.risk_score}"
+    def _get_csv_string(data: CallSummary):
+        return f"{data.call_id},{CsvDataWriter._get_date(data.datetime)},{data.number},{data.operator},{data.risk_score}"
 
     @staticmethod
-    def get_date(date_time: datetime):
+    def _get_date(date_time: datetime):
         return date_time.strftime("%Y-%m-%d")
