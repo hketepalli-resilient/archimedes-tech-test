@@ -3,14 +3,14 @@ from typing import List, Dict
 from models.Call import Call
 from models.CallSummary import CallSummary
 from models.CallSummaryBuilder import CallSummaryBuilder
-from models.Operator import Operator
+from models.Operator import Operator, OperatorPrefix
 from .DataEnricher import DataEnricher
 
 
 class DefaultDataEnricher(DataEnricher):
 
     @staticmethod
-    def combine_data(calls: List[Call], operators: Dict[int, Operator]) -> List[CallSummary]:
+    def combine_data(calls: List[Call], operators: Dict[OperatorPrefix, Operator]) -> List[CallSummary]:
         calls_summaries = []
 
         for call in calls:
