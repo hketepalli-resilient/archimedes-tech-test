@@ -1,4 +1,4 @@
-from .Operator import Operator
+from .Operator import Operator, OperatorPrefix
 
 
 class OperatorBuilder:
@@ -19,7 +19,7 @@ class OperatorBuilder:
         self._id = operator_id
         return self
 
-    def prefix(self, prefix: int) -> "OperatorBuilder":
+    def prefix(self, prefix: OperatorPrefix) -> "OperatorBuilder":
         self._prefix = prefix
         return self
 

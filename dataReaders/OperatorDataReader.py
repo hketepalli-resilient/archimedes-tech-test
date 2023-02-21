@@ -1,16 +1,15 @@
 import json
 from typing import Dict
 
-from models.Operator import Operator
+from models.Operator import Operator, OperatorPrefix
 from models.OperatorBuilder import OperatorBuilder
 from .DataReader import DataReader
 
 
 class OperatorDataReader(DataReader):
 
-    # Returns a dict[operator prefix, operator]
     @staticmethod
-    def read_data(filename: str) -> Dict[int, Operator]:
+    def read_data(filename: str) -> Dict[OperatorPrefix, Operator]:
         with open(filename, 'r') as f:
             data = json.load(f)
             operators = {}
