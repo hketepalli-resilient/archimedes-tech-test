@@ -18,7 +18,10 @@ class DefaultDataEnricher(DataEnricher):
                 .call_id(call.id) \
                 .datetime(call.datetime) \
                 .phone_number(call.number) \
-                .risk_score(DefaultDataEnricher.get_risk_score(call))
+                .risk_score(DefaultDataEnricher.get_risk_score(
+                call.risk_score,
+                in_green_list=call.green_list,
+                in_red_list=call.red_list))
 
             prefix = DefaultDataEnricher.get_prefix_range(call.number)
 
@@ -38,10 +41,10 @@ class DefaultDataEnricher(DataEnricher):
         return int(phone_number[3] + '0' * 3)
 
     @staticmethod
-    def get_risk_score(call: Call) -> float:
-        if call.green_list:
+    def get_risk_score(risk_score: float, in_green_list: bool, in_red_list: bool) -> float:
+        if in_green_list:
             return 0.0
-        elif call.red_list:
+        elif in_red_list:
             return 1.0
         else:
-            return round(call.risk_score, 1)
+            return round(risk_score, 1)
