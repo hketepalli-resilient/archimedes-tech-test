@@ -1,6 +1,6 @@
 import unittest
 
-from dataReaders.OperatorDataReader import OperatorDataReader
+from data_readers.OperatorDataReader import OperatorDataReader
 from tests.fixtures.fixtures import OPERATORS
 
 

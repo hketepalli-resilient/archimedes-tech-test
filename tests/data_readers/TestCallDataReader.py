@@ -1,6 +1,6 @@
 import unittest
 
-from dataReaders.CallDataReader import CallDataReader
+from data_readers.CallDataReader import CallDataReader
 from tests.fixtures.fixtures import CALLS
 
 

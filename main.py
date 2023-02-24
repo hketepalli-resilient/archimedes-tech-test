@@ -1,7 +1,7 @@
-from dataEnrichers.DefaultDataEnricher import DefaultDataEnricher
-from dataReaders.CallDataReader import CallDataReader
-from dataReaders.OperatorDataReader import OperatorDataReader
-from dataWriters.CsvDataWriter import CsvDataWriter
+from data_enrichers.DefaultDataEnricher import DefaultDataEnricher
+from data_readers.CallDataReader import CallDataReader
+from data_readers.OperatorDataReader import OperatorDataReader
+from data_writers.CsvDataWriter import CsvDataWriter
 
 
 def main():

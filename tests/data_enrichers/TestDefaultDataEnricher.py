@@ -1,6 +1,6 @@
 import unittest
 
-from dataEnrichers.DefaultDataEnricher import DefaultDataEnricher
+from data_enrichers.DefaultDataEnricher import DefaultDataEnricher
 from tests.fixtures.fixtures import CALLS, OPERATORS, CALLS_SUMMARIES
 
 

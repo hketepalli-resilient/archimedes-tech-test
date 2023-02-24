@@ -1,6 +1,6 @@
 import unittest
 
-from dataWriters.CsvDataWriter import CsvDataWriter
+from data_writers.CsvDataWriter import CsvDataWriter
 from tests.fixtures.fixtures import CALLS_SUMMARIES
 
 
