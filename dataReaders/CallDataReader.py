@@ -3,8 +3,7 @@ from typing import List
 
 import iso8601
 
-from models.Call import Call
-from models.CallBuilder import CallBuilder
+from models.Call import *
 from .DataReader import DataReader
 
 
