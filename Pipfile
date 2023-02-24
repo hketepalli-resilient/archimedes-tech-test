@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 iso8601 = "*"
+typing-extensions = "*"
 
 [dev-packages]
 
