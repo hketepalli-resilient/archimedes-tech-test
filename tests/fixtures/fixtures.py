@@ -1,7 +1,7 @@
 import iso8601
 
 from models.Call import CallBuilder
-from models.CallSummaryBuilder import CallSummaryBuilder
+from models.CallSummary import CallSummaryBuilder
 from models.Operator import OperatorBuilder
 
 DATETIME_FORMAT = "%Y-%m-%dT%H:%M:%S.%fZ"

@@ -1,8 +1,7 @@
 from typing import List, Dict
 
 from models.Call import Call
-from models.CallSummary import CallSummary
-from models.CallSummaryBuilder import CallSummaryBuilder
+from models.CallSummary import *
 from models.Operator import Operator, OperatorPrefix
 from .DataEnricher import DataEnricher
 
