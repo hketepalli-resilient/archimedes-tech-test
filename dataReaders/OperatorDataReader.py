@@ -1,8 +1,7 @@
 import json
 from typing import Dict
 
-from models.Operator import Operator, OperatorPrefix
-from models.OperatorBuilder import OperatorBuilder
+from models.Operator import *
 from .DataReader import DataReader
 
 
